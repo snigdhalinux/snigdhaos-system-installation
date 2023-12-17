@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-echo '
-[hawkeye]
-SigLevel = Required DatabaseOptional
-Include = /etc/pacman.d/snigdhaos-mirrorlist
-' | sudo tee --append /etc/pacman.conf
-sudo pacman -Syyu
