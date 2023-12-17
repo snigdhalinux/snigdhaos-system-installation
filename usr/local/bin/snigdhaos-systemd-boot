@@ -1,17 +1,15 @@
 #!/bin/bash
 
-echo
-echo "#################################"
-echo "Start arcolinux-systemd-boot"
-echo "#################################"
-echo
+echo ""
+echo "Start snigdhaos-systemd-boot"
+echo ""
 
 echo "installing kernel-install-mkinitcpio"
 pacman -U --noconfirm /usr/local/bin/kernel-install-mkinitcpio-*-any.pkg.tar.zst
 
-# echo "#################################"
+# echo ""
 # echo "Removing any leftovers for grub boot"
-# echo "#################################"
+# echo ""
 # echo "remove grub-customizer"
 # pacman -R --noconfirm grub-customizer
 # echo "remove grub"
@@ -24,8 +22,7 @@ pacman -U --noconfirm /usr/local/bin/kernel-install-mkinitcpio-*-any.pkg.tar.zst
 # rm -rv /boot/grub
 #rm -v /etc/pacman.d/hooks/kernel-linux.hook
 
-echo
-echo "#################################"
-echo "End arcolinux-systemd-boot"
-echo "#################################"
-echo
+echo ""
+echo "End snigdhaos-systemd-boot"
+echo ""
+

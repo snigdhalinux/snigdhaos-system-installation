@@ -1,13 +1,13 @@
 #!/bin/bash
 
-echo "#################################"
-echo "Begin arcolinux-fixes"
-echo "#################################"
+echo ""
+echo "Begin snigdhaos-fixes"
+echo ""
 
 desktop=$(ls /usr/share/xsessions)
-echo "#################################"
+echo ""
 echo "This is your current desktop file "$desktop
-echo "#################################"
+echo ""
 case $desktop in
   ukui.desktop)
   echo "Lightm is installed and active - go back to sddm"
@@ -42,6 +42,6 @@ if [ -f /usr/bin/ukui-session ]; then
   systemctl enable sddm.service -f
 fi
 
-echo "#################################"
-echo "End arcolinux-fixes"
-echo "#################################"
+echo ""
+echo "End snigdhaos-fixes"
+echo ""
