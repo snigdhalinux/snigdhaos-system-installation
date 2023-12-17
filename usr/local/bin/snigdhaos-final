@@ -1,51 +1,44 @@
 #!/bin/bash
-echo
-echo "#################################"
-echo "Start arcolinux-final"
-echo "#################################"
-echo
-echo "#################################"
+
+echo ""
+echo "Start snigdhaos-final"
+echo ""
 echo "Permissions of important folders"
-echo "#################################"
+echo ""
 chmod 750 /etc/sudoers.d
 chmod 750 /etc/polkit-1/rules.d
 chgrp polkitd /etc/polkit-1/rules.d
-echo
-echo
-echo "#################################"
+echo ""
 echo "Copy /etc/skel to /root"
-echo "#################################"
+echo ""
 cp -aT /etc/skel/ /root/
-echo
-echo "#################################"
+echo ""
 echo "Cleanup autologin root"
-echo "#################################"
+echo ""
 rm -rfv /etc/systemd/system/getty@tty1.service.d
-echo
-echo
-echo "#################################"
+echo ""
 echo "Setting editor to nano"
-echo "#################################"
+echo ""
 echo "EDITOR=nano" >> /etc/profile
 echo
-echo "#################################"
+echo ""
 echo "Bluetooth improvements"
-echo "#################################"
+echo ""
 sed -i "s/#AutoEnable=false/AutoEnable=true/g" /etc/bluetooth/main.conf
 echo 'load-module module-switch-on-connect' | sudo tee --append /etc/pulse/default.pa
 echo
-echo "#################################"
+echo ""
 echo "Cleanup original files"
-echo "#################################"
+echo ""
 rm -fv /etc/sudoers.d/g_wheel
-rm -rfv /usr/share/backgrounds/xfce
+# rm -rfv /usr/share/backgrounds/xfce
 rm -fv /etc/polkit-1/rules.d/49-nopasswd_global.rules
 rm -v /root/{.automated_script.sh,.zlogin}
-mv -v /etc/arcolinux-release /etc/lsb-release
+mv -v /etc/snigdhaos-release /etc/lsb-release
 
 # Do not do here - extra /home/root folder
 #echo "Hardcode-fixer" 
-#echo "#################################"
+#echo ""
 #hardcode-fixer
 
 #echo "Start systemd-boot"
@@ -54,9 +47,9 @@ mv -v /etc/arcolinux-release /etc/lsb-release
 
 echo "Start cleanup grub for systemd"
 if [ -f /boot/efi/loader/loader.conf ]; then
-	# echo "#################################"
+	# echo ""
 	# echo "Removing any leftovers for grub boot"
-	# echo "#################################"
+	# echo ""
 	# echo "remove grub-customizer"
 	# pacman -R --noconfirm grub-customizer
 	# echo "remove grub"
@@ -73,19 +66,17 @@ if [ -f /boot/efi/loader/loader.conf ]; then
 fi
 echo "End cleanup grub for systemd"
 
-echo "#################################"
+echo ""
 echo "Permission of root"
-echo "#################################"
+echo ""
 chmod -v 700 /root
 
-echo "#################################"
-echo "ArcoLinux virtual machine check"
-echo "#################################"
+echo ""
+echo "Snigdha OS virtual machine check"
+echo ""
 
-/usr/local/bin/arcolinux-virtual-machine-check
+/usr/local/bin/snigdhaos-virtual-machine-check
 
-echo
-echo "#################################"
-echo "End arcolinux-final"
-echo "#################################"
-echo
+echo ""
+echo "End snigdhaos-final"
+echo ""
