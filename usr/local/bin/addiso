@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 echo '
-[arcolinux_repo_iso]
+[hawkeye]
 SigLevel = Required DatabaseOptional
-Include = /etc/pacman.d/arcolinux-mirrorlist
+Include = /etc/pacman.d/snigdhaos-mirrorlist
 ' | sudo tee --append /etc/pacman.conf
 sudo pacman -Syyu
