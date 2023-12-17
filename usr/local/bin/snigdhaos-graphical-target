@@ -31,7 +31,7 @@ done
 selection=$(get_driver)
 
 echo ""
-echo "Start arcolinux-graphical-target"
+echo "Start snigdhaos-graphical-target"
 echo ""
 echo "Selection was "$selection
 echo ""
@@ -40,11 +40,9 @@ echo ""
 
 # free = remove nvidia-dkms keep nouveau
 if [[ $selection == "free" ]]; then
-	echo
 	echo ""
 	echo "We remove nvidia-dkms and keep nouveau"
 	echo ""
-	echo
 	pacman -Rns --noconfirm nvidia-dkms nvidia-utils nvidia-settings egl-wayland
 	cp /etc/calamares/settings-advanced-no-nivida.conf /etc/calamares/settings-advanced.conf
 fi
@@ -53,11 +51,9 @@ fi
 
 #freenonouveau = remove nvidia-dkms and nouveau
 if [[ $selection == "freenonouveau" ]]; then
-	echo
 	echo ""
 	echo "We remove nvidia-dkms and nouveau"
 	echo ""
-	echo
 	pacman -Rns --noconfirm nvidia-dkms nvidia-utils nvidia-settings egl-wayland
 	pacman -Rns --noconfirm xf86-video-nouveau
 	cp /etc/calamares/settings-advanced-no-nivida.conf /etc/calamares/settings-advanced.conf
@@ -67,43 +63,23 @@ fi
 
 #nonfree = keeping nvidia-dkms and nouveau
 if [[ $selection == "nonfree" ]]; then
-	echo
 	echo ""
 	echo "We keep nvidia-dkms and nouveau"
 	echo ""
-	echo
 fi
 
 ############################
 
 # nonfreenonouveau : keep nvidia-dkms and remove nouveau
 if [[ $selection == "nonfreenonouveau" ]]; then
-	echo
 	echo ""
 	echo "We keep nvidia-dkms and remove nouveau"
 	echo ""
-	echo
 	pacman -Rns --noconfirm xf86-video-nouveau
 fi
 
 ############################
 
-# chadwm needs to be rebuild before launching
-
-if grep -Fxq "ISO_CODENAME=ArcoLinuxB-chadwm" /etc/dev-rel
-then
-    # code if found
-    echo 'We are on Chadwm - compiling'
-    cd /etc/skel/.config/arco-chadwm/chadwm
-    make -B
-    make install
-else
-    # code if not found
-    echo "nothing to do"
-fi
-
-echo
 echo ""
-echo "End arcolinux-graphical-target"
+echo "End snigdhaos-graphical-target"
 echo ""
-echo
