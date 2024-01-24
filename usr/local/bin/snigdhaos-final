@@ -78,5 +78,10 @@ echo ""
 /usr/local/bin/snigdhaos-virtual-machine-check
 
 echo ""
+echo "Enable Network"
+echo ""
+systemctl enable --now systemd-resolved
+
+echo ""
 echo "End snigdhaos-final"
 echo ""
